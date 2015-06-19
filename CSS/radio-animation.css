@@ -1,0 +1,215 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Radio button component */
+body { font-family: arial; background-color: #01a3f5; }
+@font-face { font-family: 'msm-v3'; src: url('../resources/msm-v3.woff'); }
+@font-face { font-family: 'icons'; src: url('../resources/icons.woff'); }
+
+/*form { background: #01a3f5 url("resources/addons.png") left top no-repeat; background-size: 100%;   }*/
+form { 
+    width: 593px ; 
+    height: 344px; 
+}
+
+.radio-buttons fieldset legend { display: none; }
+
+.radio-buttons ul { 
+    margin: 61px auto; 
+    width: 456px; 
+}
+
+.radio-buttons li { 
+    width: 132px; 
+    height: 190px; 
+    display: inline-block; 
+    margin-right: 30px; 
+    float: left; 
+    overflow: visible; 
+}
+
+.radio-buttons li:last-child { margin-right: 0; }
+
+.radio-buttons input[type="radio"] { 
+    position: absolute; 
+    z-index: -5; 
+    left: -5000px; 
+    width: 39%; 
+}
+
+.radio-buttons label { position: relative; }
+
+/* Main icon*/
+.radio-buttons input[type="radio"]:checked + label { 
+    background-color: #fff; 
+    box-shadow: 2px 2px 0 0 #005079; 
+}
+
+.radio-buttons input[type="radio"] +label strong.icon {
+    display: block;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+}
+
+.radio-buttons input[type="radio"] +label strong.icon span {
+    display: block;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+.radio-buttons input[type="radio"] + label strong.icon span:before {
+    display: block;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 27px;
+    right: 27px;
+    font: normal 80px/80px icons;
+    color: #005079;
+    transition: all 0.2s ease-in-out; 
+}
+
+/* Replace with the appropriate iconography once it becomes available */
+.radio-buttons #radio-basic + label strong.icon span:before { content: '\e600'; }
+.radio-buttons #radio-fast + label strong.icon span:before { content: '\e600'; }
+.radio-buttons #radio-super + label strong.icon span:before { content: '\e600'; }
+
+.radio-buttons input[type="radio"] + label:hover strong.icon span:before { color: #583176; } 
+.radio-buttons input[type="radio"]:checked + label strong.icon span:before {
+    animation-name: icon-transition;
+    animation-duration: 1.5s;
+    color: #583176;
+}
+
+@keyframes icon-transition {
+    0% { transform: rotate(10deg);}
+    5% { transform: rotate(-10deg);}
+    10% { transform: rotate(10deg);}
+    15% { transform: rotate(-10deg);}
+    20% { top: 27px; right: 27px; transform: rotate(0deg);}
+    40% { top: -130px; right: -130px; }
+    40.5% { top: 260px; right: 260px; }
+    55% { top: 130px; right: 130px; }
+    90% { top: 27px; right: 27px; }
+}
+
+/* big button */
+.radio-buttons label { 
+    cursor: pointer; 
+    width: 130px; 
+    height: 130px; 
+    border-radius: 50%; 
+    background-color: #087db5; 
+    position: relative; 
+    display: block; 
+    font-size: 12px; 
+    box-shadow: inset 1px 2px 0 0 #005079;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Plus marker */
+.radio-buttons input[type="radio"] + label:after { 
+    content:'\e612'; 
+    display: block; 
+    position: absolute; 
+    bottom: 9px; 
+    right: -3px; 
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    border: 4px solid #087db5; 
+    background-color: #fff; 
+    color: #583176; 
+    font: 500 44px/32px 'msm-v3' ; 
+    text-indent: -6px;
+    overflow: visible;
+    transition: all 0.2s ease-in-out;
+}
+
+.radio-buttons input[type="radio"]:checked + label:after { 
+    background-color: #40920c;  
+    border: 4px solid #fff; 
+    color: #fff; 
+    box-shadow: 2px 2px 0 0 #005079;
+    content: '\e61b';
+}
+
+.radio-buttons input[type="radio"] + label:hover {
+    background-color: #fff;
+}
+
+.radio-buttons input[type="radio"] + label:hover:after {
+    background-color: #40920c;
+    border: 4px solid #fff;
+    color: #fff;
+}
+
+/* Text label */
+.radio-buttons label .text { 
+    position: absolute; 
+    width: 130px; 
+    text-align: center; 
+    color: #fff;
+    font: 500 12px/18px 'Open Sans','Arial','Helvetica','Sans-Serif';
+    bottom: -56px;
+}
+
+.radio-buttons label .text span { 
+    display: block;
+    font-weight: 300;
+}
